@@ -1,0 +1,13 @@
+aiofiles
+beautifulsoup4
+fastapi
+httpx
+numpy
+pandas
+Pillow
+requests
+scikit-learn
+sentence-transformers
+tiktoken
+uvicorn
+python-multipart

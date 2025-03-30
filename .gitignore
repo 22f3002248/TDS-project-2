@@ -1,0 +1,50 @@
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore temporary and generated files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Ignore dataset and extracted data
+data/
+extracted_files/
+merged_files/
+tempdata/
+tempCodeRunnerFile.py
+
+# Ignore model files (they are large)
+models/all-MiniLM-L6-v2/
+models/paraphrase-MiniLM-L3-v2/
+
+# Ignore stored binary files
+*.pkl
+*.db
+*.gz
+*.zip
+*.xlsx
+*.jsonl
+
+# Ignore secrets and credentials (ensure these are not hardcoded!)
+secrets.json
+*.env
+config.yaml
+
+# Ignore virtual environment (if using one)
+venv/
+.env/
+.envrc
+
+# Ignore VS Code & Jupyter settings
+.vscode/
+.ipynb_checkpoints/
+
+# Ignore compiled Cython files (if any)
+*.so
+
+

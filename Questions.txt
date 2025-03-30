@@ -1,0 +1,67 @@
+GA 1
+
+[*] 1. VS Code Version (0.25 marks) STATIC
+[*] 2. HTTP requests with uv (1 mark)
+[*] 3. Run command with npx (0.5 marks) SUBPROCESS
+[*] 4. Use Google Sheets (0.25 marks)
+[*] 5. Use Excel (0.25 marks)
+[*] 6. Use DevTools (0.5 marks)
+[*] 7. Count Wednesdays (0.5 marks)
+[*] 8. Extract CSV from a ZIP (0.25 marks)
+[*] 9. Use JSON (0.75 marks)
+[*] 10.Multi-cursor edits to convert to JSON (0.5 marks)
+[*] 11.CSS selectors (0.5 marks)
+[*] 12.Process files with different encodings (1 mark)
+[*] 13.Use GitHub (0.5 marks) GITHUB API
+[*] 14.Replace across files (0.75 marks)
+[X] 15.List files and attributes (0.75 marks)
+[*] 16.Move and rename files (0.5 marks)
+[*] 17.Compare files (0.5 marks)
+[*] 18.SQL: Ticket Sales (0.75 marks) STATIC
+
+GA 2
+[*] 1. Write documentation in Markdown (1 mark) STATIC
+[*] 2. Compress an image (1 mark)
+[*] 3. Host your portfolio on GitHub Pages (1 mark) GITHUB API
+[*] 4. Use Google Colab (0.5 marks)
+[*] 5. Use an Image Library in Google Colab (0.5 marks)
+[ ] 6. Deploy a Python API to Vercel (1 mark)
+[*] 7. Create a GitHub Action (1.5 marks) GITHUB API
+[*] 8. Push an image to Docker Hub (1 mark)
+[*] 9. Write a FastAPI server to serve data (1 mark)
+[D] 10.Run a local LLM with Llamafile (1.5 marks)
+
+GA 3
+[*] 1. LLM Sentiment Analysis (1 mark) STATIC
+[*] 2. LLM Token Cost (0.75 marks)
+[*] 3. Generate addresses with LLMs (1 mark) 
+[*] 4. LLM Vision (1 mark) STATIC
+[*] 5. LLM Embeddings (0.75 marks) STATIC
+[*] 6. Embedding Similarity (1 mark) STATIC
+[ ] 7. Vector Databases (1.5 marks)
+[ ] 8. Function Calling (1.5 marks)
+
+GA 4
+[X] 1. Import HTML to Google Sheets (1 mark)
+[X] 2. Scrape IMDb movies (1 mark)
+[ ] 3. Wikipedia Outline (1 mark)
+[*] 4. Scrape the BBC Weather API (1 mark)
+[*] 5. Find the bounding box of a city (1 mark)
+[*] 6. Search Hacker News (1 mark)
+[*] 7. Find newest GitHub user (1 mark)
+[*] 8. Create a Scheduled GitHub Action (1 mark)
+[*] 9. Extract tables from PDF (1 mark)
+[*] 10.Convert a PDF to Markdown (1 mark)
+
+GA 5
+[ ] 1. Clean up Excel sales data (1 mark)
+[ ] 2. Clean up student marks (1 mark)
+[ ] 3. Apache log requests (1 mark)
+[ ] 4. Apache log downloads (1 mark)
+[ ] 5. Clean up sales data (1 mark)
+[ ] 6. Parse partial JSON (1 mark)
+[ ] 7. Extract nested JSON keys (1 mark)
+[ ] 8. DuckDB: Social Media Interactions (1 mark)
+[ ] 9. Transcribe a YouTube video (1 mark)
+[ ] 10.Reconstruct an image (1 mark)
+
