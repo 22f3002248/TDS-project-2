@@ -16,7 +16,7 @@ def find_best_match(question, stored_data, stored_embeddings):
     """
     Finds the best matching stored question for a given query using cosine similarity.
     """
-
+    print("Finding best match for question:", question)
     input_embedding = model.encode(question).reshape(1, -1)
     similarities = cosine_similarity(input_embedding, stored_embeddings)[0]
     best_match_idx = np.argmax(similarities)

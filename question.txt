@@ -1,0 +1,12 @@
+ There is a tickets table in a SQLite database that has columns type, units, and price. Each row is a customer bid for a concert ticket.
+
+    type	units	price
+    silver	422	1.26
+    GOLD	400	0.63
+    GOLD	460	0.9
+    GOLD	487	1.25
+    BRONZE	395	0.74
+    ...
+    What is the total sales of all the items in the "Gold" ticket type? Write SQL to calculate it.
+    Get all rows where the Type is "Gold". Ignore spaces and treat mis-spellings like GOLD, gold, etc. as "Gold". Calculate the sales as Units * Price, and sum them up.
+     

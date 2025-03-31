@@ -177,7 +177,7 @@ async def get_country_outline(country: str):
     return code
 
 
-def get_weather_forecast(task):
+def ga_4_4(task):
     """
     Extracts the city from the task description and fetches the weather forecast.
 

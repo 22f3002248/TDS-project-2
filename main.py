@@ -10,7 +10,7 @@ from typing import Optional
 
 import aiofiles
 import numpy as np
-from fastapi import FastAPI, File, Form, Request, UploadFile
+from fastapi import Body, FastAPI, File, Form, Request, UploadFile
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -44,7 +44,10 @@ with open("stored_data.pkl", "rb") as f:
 
 
 def process_response(map_, file):
+    print(map_["input_question"])
+    print("-"*50)
     print(map_["best_answer"])
+    print("-"*50)
     # GA 1
     if map_["best_answer"] == "ga_1_1":
         return ga_1_1()
@@ -244,19 +247,16 @@ os.makedirs(TEMP_DIR, exist_ok=True)    # Ensure the directory exists
 
 
 async def save_file(file: UploadFile) -> str:
-    file_path = os.path.join(TEMP_DIR, file.filename)
-    temp_file_path = file_path + ".tmp"  # Temporary file
+    """Save an uploaded file, overwriting if it already exists."""
+    file_path = os.path.join(TEMP_DIR, file.filename)  # Save directly
 
     try:
-        async with aiofiles.open(temp_file_path, "wb") as buffer:
-            print(f"Writing file to: {temp_file_path}")
+        async with aiofiles.open(file_path, "wb") as buffer:
+            print(f"Writing file to: {file_path}")
             while chunk := await file.read(1024 * 1024):  # Read 1MB chunks
                 await buffer.write(chunk)
 
-        # Move temp file to final location
-        os.rename(temp_file_path, file_path)
         print(f"File saved successfully: {file_path}")
-
         return file_path  # Return the saved file path
 
     except Exception as e:
@@ -267,28 +267,32 @@ async def save_file(file: UploadFile) -> str:
 @app.post("/api")
 async def process_question(
     request: Request,
-    question: str = Form(...),
+    question: str = Form(...),  # <-- Use Form() for form-encoded data
     file: Optional[UploadFile] = File(None)
 ):
-    print("Received question:", question)
+    print("Received question:", repr(question))  # Debugging: check newlines
     print("Received file:", file.filename if file else "No file")
+
     map_ = find_best_match(question, stored_data, stored_embeddings)
-    # Convert NumPy float/int values to native Python types
+
+    # Convert NumPy values to Python native types
     for key, value in map_.items():
         if isinstance(value, (np.float32, np.float64, np.int32, np.int64)):
             map_[key] = value.item()
 
     file_path = None
     if file:
-        file_path = await save_file(file)  # Use the new safe function
+        file_path = await save_file(file)
 
     result = process_response(map_, file_path)
     if isinstance(result, (np.integer, np.floating)):
         result = result.item()
+
     response = {"answer": result}
-    json_response = json.dumps(response)
-    return json_response
+    return response  # JSON response
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+    # uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

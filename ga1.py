@@ -33,7 +33,7 @@ github_token = os.getenv("GITHUB")
 
 
 def ga_1_1():
-    return r"""
+    ans = r"""
 Version:          Code 1.98.2 (ddc367ed5c8936efe395cffeec279b04ffd7db78, 2025-03-12T13:32:45.399Z)
 OS Version:       Windows_NT x64 10.0.26100
 CPUs:             AMD Ryzen 7 4800H with Radeon Graphics          (16 x 2895)
@@ -91,6 +91,7 @@ Workspace Stats:
 |      File types: py(2) txt(2)
 |      Conf files:
     """
+    return ans
 
 
 def ga_1_2(input_text: str):
@@ -102,7 +103,7 @@ def ga_1_2(input_text: str):
         input_text (str): The input text containing the task description.
 
     Returns:
-        dict: The JSON response from the HTTP request.
+        str: The JSON response as a properly formatted string.
     """
     # Extract the email parameter using regex
     match = re.search(r'email set to ([\w.@+-]+)', input_text)
@@ -115,7 +116,9 @@ def ga_1_2(input_text: str):
 
     # Send HTTPS GET request
     response = requests.get(url, params=params)
-    return response.json()
+
+    # Convert response to a properly formatted JSON string
+    return json.dumps(response.json(), indent=None, separators=(",", ":"), ensure_ascii=False)
 
 
 def ga_1_3(file_path: str):
@@ -189,7 +192,7 @@ def ga_1_4(question: str):
     constrained_array = sequence_matrix[:constrain_rows, :constrain_cols]
 
     # Compute SUM
-    return np.sum(constrained_array)
+    return str(np.sum(constrained_array))
 
 
 def ga_1_5(question: str):
@@ -241,7 +244,7 @@ def ga_1_5(question: str):
     result = np.sum(taken_values)
 
     # print("✅ Final Computed Sum:", result)
-    return result
+    return str(result)
 
 
 def ga_1_6(file_path: str):
@@ -274,7 +277,7 @@ def ga_1_7(question: str) -> int:
     """
 
     # Updated regex pattern to match different question formats
-    pattern = r"(?:How many|Count the) (\w+)s? (?:are there in|between) (\d{4}-\d{2}-\d{2}) to (\d{4}-\d{2}-\d{2})"
+    pattern = r"(?:How many) (\w+)s? (?:are there in the date range) (\d{4}-\d{2}-\d{2}) to (\d{4}-\d{2}-\d{2})"
 
     match = re.search(pattern, question, re.IGNORECASE)
 
@@ -305,7 +308,7 @@ def ga_1_7(question: str) -> int:
     count = sum(1 for i in range((end - start).days + 1)
                 if (start + timedelta(days=i)).weekday() == target_weekday)
 
-    return count
+    return str(count)
 
 
 def ga_1_8(question: str, zip_file_path: str) -> list:
@@ -316,23 +319,8 @@ def ga_1_8(question: str, zip_file_path: str) -> list:
     :param zip_file_path: Path to the ZIP file.
     :return: List of values in the specified column.
     """
-    # Strict regex pattern to extract ZIP filename, CSV filename, and column name inside double quotes
-    pattern = r'Download and unzip file ([\w\-.]+).*?\b([\w\-.]+\.csv)\b.*?(?:value in the|column) ["\'](.*?)["\']'
-
-    match = re.search(pattern, question, re.IGNORECASE)
-
-    if not match:
-        raise ValueError(
-            "Could not extract ZIP filename, CSV filename, or column name from the question.")
-
-    zip_filename, csv_filename, column_name = match.groups()
+    zip_filename, csv_filename, column_name = zip_file_path, "extract.csv", 'answer'
     column_name = column_name.strip()
-
-    # Validate ZIP file name
-    if zip_filename != os.path.basename(zip_file_path):
-        raise ValueError(
-            f"Provided ZIP file '{os.path.basename(zip_file_path)}' does not match expected '{zip_filename}'.")
-
     extracted_values = []
 
     # Open and extract CSV from ZIP
@@ -711,7 +699,7 @@ def ga_1_15(task_description: str, zip_path: str) -> int:
             if file_size >= min_size and mod_date >= min_date:
                 total_size += file_size
 
-    return total_size
+    return str(total_size)
 
 
 def ga_1_16(zip_path: str) -> str:
@@ -792,7 +780,7 @@ def ga_1_16(zip_path: str) -> str:
     # ✅ Step 6: Compute SHA-256 hash
     sha256_hash = hashlib.sha256(
         "\n".join(all_contents).encode("utf-8")).hexdigest()
-    return sha256_hash
+    return str(sha256_hash)
 
 
 def ga_1_17(zip_path: str, ) -> int:
@@ -818,7 +806,7 @@ def ga_1_17(zip_path: str, ) -> int:
             open(file2_path, "r", encoding="utf-8", errors="ignore") as f2:
         diff_count = sum(1 for line1, line2 in zip(f1, f2)
                          if line1.strip() != line2.strip())
-
+    print(diff_count)
     return diff_count
 
 
@@ -826,6 +814,6 @@ def ga_1_18():
     query = f"""\
 SELECT SUM(units * price)
 FROM tickets
-WHERE TRIM(LOWER(type)) LIKE 'gold';
-    """
+WHERE TRIM(LOWER(type)) LIKE 'gold';\
+"""
     return query

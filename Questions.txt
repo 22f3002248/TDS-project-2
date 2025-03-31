@@ -1,23 +1,23 @@
 GA 1
 
-[*] 1. VS Code Version (0.25 marks) STATIC
-[*] 2. HTTP requests with uv (1 mark)
+[W] 1. VS Code Version (0.25 marks) STATIC
+[W] 2. HTTP requests with uv (1 mark)
 [*] 3. Run command with npx (0.5 marks) SUBPROCESS
-[*] 4. Use Google Sheets (0.25 marks)
-[*] 5. Use Excel (0.25 marks)
-[*] 6. Use DevTools (0.5 marks)
-[*] 7. Count Wednesdays (0.5 marks)
-[*] 8. Extract CSV from a ZIP (0.25 marks)
+[W] 4. Use Google Sheets (0.25 marks)
+[W] 5. Use Excel (0.25 marks)
+[W] 6. Use DevTools (0.5 marks)
+[W] 7. Count Wednesdays (0.5 marks)
+[W] 8. Extract CSV from a ZIP (0.25 marks)
 [*] 9. Use JSON (0.75 marks)
-[*] 10.Multi-cursor edits to convert to JSON (0.5 marks)
-[*] 11.CSS selectors (0.5 marks)
+[W] 10.Multi-cursor edits to convert to JSON (0.5 marks)
+[W] 11.CSS selectors (0.5 marks)
 [*] 12.Process files with different encodings (1 mark)
 [*] 13.Use GitHub (0.5 marks) GITHUB API
-[*] 14.Replace across files (0.75 marks)
+[W] 14.Replace across files (0.75 marks)
 [X] 15.List files and attributes (0.75 marks)
 [*] 16.Move and rename files (0.5 marks)
 [*] 17.Compare files (0.5 marks)
-[*] 18.SQL: Ticket Sales (0.75 marks) STATIC
+[W] 18.SQL: Ticket Sales (0.75 marks) STATIC
 
 GA 2
 [*] 1. Write documentation in Markdown (1 mark) STATIC
