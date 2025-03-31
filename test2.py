@@ -8,31 +8,32 @@ import requests
 # Define the API endpoint
 # Change this if your server is running elsewhere
 API_URL = "http://localhost:8000/api"
+API_URL = 'http://34.93.189.78:8000/api'
 
 # Sample test cases
 test_cases = [
     # GA1
-    # {
-    #     "question": """Install and run Visual Studio Code. In your Terminal (or Command Prompt), type code -s and press Enter. Copy and paste the entire output below.
-    #     What is the output of code -s?""",
-    #     "expected_answer": "ga_1_1",
-    #     "file": ""
-    # },
-    #     {
-    #         "question": """Running uv run --with httpie -- https [URL] installs the Python package httpie and sends a HTTPS request to the URL.
-    # Send a HTTPS request to https://httpbin.org/get with the URL encoded parameter email set to 22f3002248@ds.study.iitm.ac.in
-    # What is the JSON output of the command? (Paste only the JSON body, not the headers)
-    # """,
-    #         "expected_answer": "ga_1_2",
-    #         "file": ""
-    #     },
-    #     {
-    #         "question": """Let's make sure you know how to use npx and prettier.
-    # Download README.md. In the directory where you downloaded it, make sure it is called README.md, and run npx -y prettier@3.4.2 README.md | sha256sum.
-    # What is the output of the command?""",
-    #         "expected_answer": "ga_1_3",
-    #         "file": "data/README.md"
-    #     },
+    {
+        "question": """Install and run Visual Studio Code. In your Terminal (or Command Prompt), type code -s and press Enter. Copy and paste the entire output below.
+        What is the output of code -s?""",
+        "expected_answer": "ga_1_1",
+        "file": ""
+    },
+    {
+        "question": """Running uv run --with httpie -- https [URL] installs the Python package httpie and sends a HTTPS request to the URL.
+    Send a HTTPS request to https://httpbin.org/get with the URL encoded parameter email set to 22f3002248@ds.study.iitm.ac.in
+    What is the JSON output of the command? (Paste only the JSON body, not the headers)
+    """,
+        "expected_answer": "ga_1_2",
+        "file": ""
+    },
+    {
+        "question": """Let's make sure you know how to use npx and prettier.
+    Download README.md. In the directory where you downloaded it, make sure it is called README.md, and run npx -y prettier@3.4.2 README.md | sha256sum.
+    What is the output of the command?""",
+        "expected_answer": "ga_1_3",
+        "file": "data/README.md"
+    },
     # {
     #     "question": """ Let's make sure you can write formulas in Google Sheets. Type this formula into Google Sheets. (It won't work in Excel)
     # =SUM(ARRAY_CONSTRAIN(SEQUENCE(100, 100, 15, 7), 1, 10))
