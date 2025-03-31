@@ -4,7 +4,8 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 
 # Load model
-local_model_path = "./models/all-MiniLM-L6-v2"
+# local_model_path = "./models/all-MiniLM-L6-v2"
+local_model_path = "./models/all-mpnet-base-v2"
 model = SentenceTransformer(local_model_path)
 
 stored_data = [
@@ -191,7 +192,7 @@ What is the result? (It should be a 5-character string)""",
         "answer": "ga_2_4"
     },
     {
-        "question": """Download this image <renna.webp>. Create a new Google Colab notebook and run this code (after fixing a mistake in it) to calculate the number of pixels with a certain minimum brightness:
+        "question": """Download this image renna.webp. Create a new Google Colab notebook and run this code (after fixing a mistake in it) to calculate the number of pixels with a certain minimum brightness:
 import numpy as np
 from PIL import Image
 from google.colab import files
@@ -788,13 +789,12 @@ Upload the reconstructed image by moving the pieces from the scrambled position 
         "answer": "ga_5_10"
     },
     # GA 5  DONE
-
 ]
 stored_embeddings = np.array(
     [model.encode(data["question"]) for data in stored_data])
 
 # Save embeddings and stored_data together
-with open("stored_data.pkl", "wb") as f:
+with open("stored_data_long.pkl", "wb") as f:
     pickle.dump({"stored_data": stored_data,
                 "stored_embeddings": stored_embeddings}, f)
 

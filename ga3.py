@@ -11,6 +11,7 @@ load_dotenv()
 
 # Access the variables
 github_token = os.getenv("GITHUB")
+AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
 
 
 def ga_3_1(task: str) -> str:
@@ -235,7 +236,6 @@ def most_similar(embeddings):
 
 
 def ga_3_7():
-    AIPROXY_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjI0ZjIwMDgyMDdAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.xMVooyH0P3cUnxHMxSpJprkTahF54UA7KRenztPlAS4"
 
     code = '''
 import os

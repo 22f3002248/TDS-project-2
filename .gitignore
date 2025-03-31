@@ -21,6 +21,7 @@ tempCodeRunnerFile.py
 # Ignore model files (they are large)
 models/all-MiniLM-L6-v2/
 models/paraphrase-MiniLM-L3-v2/
+models/all-mpnet-base-v2
 
 # Ignore stored binary files
 *.pkl

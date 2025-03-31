@@ -20,16 +20,16 @@ GA 1
 [W] 18.SQL: Ticket Sales (0.75 marks) STATIC
 
 GA 2
-[*] 1. Write documentation in Markdown (1 mark) STATIC
-[*] 2. Compress an image (1 mark)
-[*] 3. Host your portfolio on GitHub Pages (1 mark) GITHUB API
-[*] 4. Use Google Colab (0.5 marks)
-[*] 5. Use an Image Library in Google Colab (0.5 marks)
-[ ] 6. Deploy a Python API to Vercel (1 mark)
-[*] 7. Create a GitHub Action (1.5 marks) GITHUB API
-[*] 8. Push an image to Docker Hub (1 mark)
-[*] 9. Write a FastAPI server to serve data (1 mark)
-[D] 10.Run a local LLM with Llamafile (1.5 marks)
+[W] 1. Write documentation in Markdown (1 mark) STATIC
+[W] 2. Compress an image (1 mark)
+[W] 3. Host your portfolio on GitHub Pages (1 mark) GITHUB API
+[W] 4. Use Google Colab (0.5 marks)
+[W] 5. Use an Image Library in Google Colab (0.5 marks)
+[ ] 6. Deploy a Python API to Vercel (1 mark)   DEPLOY AND UPDATE CSV
+[W] 7. Create a GitHub Action (1.5 marks) GITHUB API
+[W] 8. Push an image to Docker Hub (1 mark)
+### 9. Write a FastAPI server to serve data (1 mark)    KEEP ENDPOINT RUNNING AND UPDATE CSV
+### 10.Run a local LLM with Llamafile (1.5 marks)   DEPLOYED ON GC
 
 GA 3
 [*] 1. LLM Sentiment Analysis (1 mark) STATIC
@@ -38,8 +38,8 @@ GA 3
 [*] 4. LLM Vision (1 mark) STATIC
 [*] 5. LLM Embeddings (0.75 marks) STATIC
 [*] 6. Embedding Similarity (1 mark) STATIC
-[ ] 7. Vector Databases (1.5 marks)
-[ ] 8. Function Calling (1.5 marks)
+### 7. Vector Databases (1.5 marks)  KEEP ENDPOINT RUNNING AND UPDATE CSV
+### 8. Function Calling (1.5 marks)  KEEP ENDPOINT RUNNING AND UPDATE CSV
 
 GA 4
 [X] 1. Import HTML to Google Sheets (1 mark)

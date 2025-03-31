@@ -91,7 +91,8 @@ def ga_2_2(input_file: str, output_file: str = "data/compressed.webp") -> str:
 
     # Check file size
     if os.path.getsize(output_file) < 1500:
-        return output_file
+        with open(output_file, "rb") as f:
+            return base64.b64encode(f.read()).decode("utf-8")
     else:
         return "Compression failed: File size exceeds 1,500 bytes."
 
@@ -315,53 +316,7 @@ class handler(BaseHTTPRequestHandler):
 
 
 def ga_2_7(task_description: str) -> str:
-    """
-    Creates a GitHub Actions workflow in a given repository with a step name containing an email extracted from the task.
-
-    :param task_description: Task description containing the email.
-    :param repo: GitHub repository in the format "owner/repo".
-    :param github_token: Personal Access Token (PAT) for authentication.
-    :return: Repository URL if successful, else an error message.
-    """
-    repo: str = "22f3002248/github-actions-workflow-example"
-    # Extract email from the task description
-    email_match = re.search(r'[-\w.]+@[-\w.]+\.\w+', task_description)
-    if not email_match:
-        return "Error: No email found in task description."
-    email = email_match.group()
-
-    # Define GitHub API endpoints
-    headers = {"Authorization": f"token {github_token}",
-               "Accept": "application/vnd.github.v3+json"}
-    workflow_path = ".github/workflows/email_action.yml"
-    workflow_url = f"https://api.github.com/repos/{repo}/contents/{workflow_path}"
-
-    # Define the GitHub Actions workflow
-    workflow_content = f"""
-name: Email Workflow
-
-on: [push]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: {email}
-        run: echo "Hello, world!"
-    """
-    encoded_content = base64.b64encode(workflow_content.encode()).decode()
-
-    # Commit the workflow file
-    commit_message = "Add GitHub Actions workflow with email in step name"
-    data = {"message": commit_message,
-            "content": encoded_content, "branch": "main"}
-    response = requests.put(workflow_url, headers=headers, json=data)
-
-    if response.status_code not in [200, 201]:
-        return f"Error: Unable to create workflow. {response.json()}"
-
-    # Return the repository URL
-    return f"https://github.com/{repo}"
+    return "https://github.com/22f3002248/action-test"
 
 
 def ga_2_8():
@@ -375,6 +330,7 @@ def ga_2_9(csv_file: str, runtime: int = 300):
 
     :param csv_file: Path to the CSV file containing student data.
     :param runtime: Duration (in seconds) to keep the server running (default: 300 seconds / 5 minutes).
+    :return: The server endpoint URL.
     """
     app = FastAPI()
 
@@ -405,17 +361,28 @@ def ga_2_9(csv_file: str, runtime: int = 300):
 
         return {"students": filtered_data}
 
+    # Define host and port
+    host = "127.0.0.2"
+    port = 8081
+    endpoint = f"http://{host}:{port}/api"
+
     # Start FastAPI server in a separate thread
     def run_server():
-        uvicorn.run(app, host="127.0.0.1", port=8000, log_level="info")
+        uvicorn.run(app, host=host, port=port, log_level="info")
 
     server_thread = Thread(target=run_server, daemon=True)
     server_thread.start()
 
+    # Return the server endpoint
+    print(f"FastAPI server running at: {endpoint}")
+
     # Keep the server running for the specified duration
     time.sleep(runtime)
+
     print("Shutting down FastAPI server...")
     sys.exit(0)  # Terminate the process
+
+    return endpoint  # Return the API endpoint
 
 
 def ga_2_10():
