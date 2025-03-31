@@ -177,7 +177,7 @@ def process_response(map_, file):
         return "34.93.189.78:8000/ga_2_9"
 
     elif map_["best_answer"] == "ga_2_10":
-        return ga_2_10()
+        return "https://f27a-34-131-70-146.ngrok-free.app"
     # GA 3
     elif map_["best_answer"] == "ga_3_1":
         return ga_3_1(map_["input_question"])

@@ -299,7 +299,7 @@ def ga_4_5(task):
             else:  # coord_type == "longitude"
                 coordinate = bounding_box[2] if bound_type == "minimum" else bounding_box[3]
 
-            return f"The {bound_type} {coord_type} of the bounding box for {city}, {country} is: {coordinate}"
+            return str(coordinate)
         else:
             return "Bounding box information not available."
     else:

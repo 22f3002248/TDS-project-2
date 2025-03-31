@@ -249,4 +249,4 @@ def ga_2_9(csv_file: str):
 
 
 def ga_2_10():
-    pass
+    return 'https://f27a-34-131-70-146.ngrok-free.app'
