@@ -173,7 +173,8 @@ def process_response(map_, file):
         return ga_2_8()
 
     elif map_["best_answer"] == "ga_2_9":
-        return ga_2_9(file)
+        load_csv(file)
+        return "34.93.189.78:8000/ga_2_9"
 
     elif map_["best_answer"] == "ga_2_10":
         return ga_2_10()
@@ -197,10 +198,10 @@ def process_response(map_, file):
         return ga_3_6()
 
     elif map_["best_answer"] == "ga_3_7":
-        return ga_3_7()
+        return "34.93.189.78:8000/similarity"
 
     elif map_["best_answer"] == "ga_3_8":
-        return ga_3_8()
+        return "34.93.189.78:8000/execute"
     # GA 4
     elif map_["best_answer"] == "ga_4_1":
         return ga_4_1(map_["input_question"])
@@ -317,8 +318,8 @@ def load_csv(csv_file):
     students_data = df.to_dict(orient="records")
 
 
-@app.get("/ga2_7")
-def get_students(class_param: list[str] = Query(None, alias="class")):
+@app.get("/ga_2_7")
+def ga_2_7(class_param: list[str] = Query(None, alias="class")):
     """
     API endpoint to return students data.
     Supports filtering by class using query parameters.

@@ -220,99 +220,20 @@ def ga_2_5(image_file: str, task: str) -> int:
 
 
 def ga_2_6(json_file: str):
-    """
-    Deploys a Python API to Vercel that returns student marks from a JSON file.
-
-    :param json_file: Path to the JSON file containing student marks.
-    :return: The deployed Vercel URL.
-    """
-    project_dir = "vercel_api"
-    api_dir = os.path.join(project_dir, "api")
-
-    # Clean previous project directory if it exists
-    if os.path.exists(project_dir):
-        shutil.rmtree(project_dir)
-
-    os.makedirs(api_dir, exist_ok=True)
-
-    # Read student marks from JSON
-    with open(json_file, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    # Save JSON file inside the project
-    json_dest = os.path.join(project_dir, "q-vercel-python.json")
-    with open(json_dest, "w", encoding="utf-8") as f:
-        json.dump(data, f)
-
-    # Create API handler file
-    api_code = """\
-import json
-from http.server import BaseHTTPRequestHandler
-import urllib.parse
-
-# Load student data from the JSON file
-def load_data():
-    with open('q-vercel-python.json', 'r') as file:
+    url = "https://22f3002248-vercel-tds-w2.vercel.app/api"
+    print('in ga_2_6')
+    # Read the JSON file
+    with open(json_file, "r") as file:
         data = json.load(file)
-    return data
-
-# Handler class to process incoming requests
-class handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        # Parse the query parameters
-        query = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
-
-        # Get 'name' parameters from the query string
-        names = query.get('name', [])
-
-        # Load data from the JSON file
-        data = load_data()
-
-        # Prepare the result dictionary
-        result = {"marks": []}
-        for name in names:
-            # Find the marks for each name
-            for entry in data:
-                if entry["name"] == name:
-                    result["marks"].append(entry["marks"])
-
-        # Send the response header
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')  # Enable CORS for any origin
-        self.end_headers()
-
-        # Send the JSON response
-        self.wfile.write(json.dumps(result).encode('utf-8'))
-"""
-
-    # Save API handler
-    api_file_path = os.path.join(api_dir, "index.py")
-    with open(api_file_path, "w", encoding="utf-8") as f:
-        f.write(api_code)
-
-    # Create Vercel configuration file
-    vercel_json = {
-        "version": 2,
-        "builds": [{"src": "api/index.py", "use": "@vercel/python"}],
-        "routes": [{"src": "/api", "dest": "/api/index.py"}]
-    }
-
-    with open(os.path.join(project_dir, "vercel.json"), "w", encoding="utf-8") as f:
-        json.dump(vercel_json, f, indent=2)
-
-    # Deploy to Vercel
-    subprocess.run(["vercel", project_dir, "--prod"], check=True)
-
-    # Get the deployed URL
-    output = subprocess.run(
-        ["vercel", "inspect", project_dir], capture_output=True, text=True)
-
-    for line in output.stdout.split("\n"):
-        if "https://" in line:
-            return line.strip()
-
-    return "Deployment failed or URL not found."
+    print('posting to vercel')
+    # Send POST request
+    response = requests.post(url, json=data)
+    print('got_response')
+    # Check if the request was successful
+    if response.status_code == 200:
+        return url
+    else:
+        return f"Error: {response.status_code}, {response.text}"
 
 
 def ga_2_7(task_description: str) -> str:
@@ -323,66 +244,8 @@ def ga_2_8():
     return "https://hub.docker.com/repository/docker/22f3002248/first/general"
 
 
-def ga_2_9(csv_file: str, runtime: int = 300):
-    """
-    Starts a FastAPI server to serve student data from the given CSV file.
-    The server runs as a subprocess for the specified duration (default: 5 minutes).
-
-    :param csv_file: Path to the CSV file containing student data.
-    :param runtime: Duration (in seconds) to keep the server running (default: 300 seconds / 5 minutes).
-    :return: The server endpoint URL.
-    """
-    app = FastAPI()
-
-    # Enable CORS
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-
-    # Load CSV data
-    df = pd.read_csv(csv_file, dtype={"studentId": int, "class": str})
-    students_data = df.to_dict(orient="records")
-
-    @app.get("/api")
-    def get_students(class_param: list[str] = Query(None, alias="class")):
-        """
-        API endpoint to return students data.
-        Supports filtering by class using query parameters.
-        """
-        if class_param:
-            filtered_data = [
-                student for student in students_data if student["class"] in class_param]
-        else:
-            filtered_data = students_data
-
-        return {"students": filtered_data}
-
-    # Define host and port
-    host = "127.0.0.2"
-    port = 8081
-    endpoint = f"http://{host}:{port}/api"
-
-    # Start FastAPI server in a separate thread
-    def run_server():
-        uvicorn.run(app, host=host, port=port, log_level="info")
-
-    server_thread = Thread(target=run_server, daemon=True)
-    server_thread.start()
-
-    # Return the server endpoint
-    print(f"FastAPI server running at: {endpoint}")
-
-    # Keep the server running for the specified duration
-    time.sleep(runtime)
-
-    print("Shutting down FastAPI server...")
-    sys.exit(0)  # Terminate the process
-
-    return endpoint  # Return the API endpoint
+def ga_2_9(csv_file: str):
+    pass
 
 
 def ga_2_10():

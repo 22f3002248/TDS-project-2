@@ -32,12 +32,12 @@ GA 2
 ### 10.Run a local LLM with Llamafile (1.5 marks)   DEPLOYED ON GC
 
 GA 3
-[*] 1. LLM Sentiment Analysis (1 mark) STATIC
-[*] 2. LLM Token Cost (0.75 marks)
-[*] 3. Generate addresses with LLMs (1 mark) 
-[*] 4. LLM Vision (1 mark) STATIC
-[*] 5. LLM Embeddings (0.75 marks) STATIC
-[*] 6. Embedding Similarity (1 mark) STATIC
+[W] 1. LLM Sentiment Analysis (1 mark) STATIC
+[W] 2. LLM Token Cost (0.75 marks)
+[W] 3. Generate addresses with LLMs (1 mark) 
+[W] 4. LLM Vision (1 mark) STATIC
+[W] 5. LLM Embeddings (0.75 marks) STATIC
+[W] 6. Embedding Similarity (1 mark) STATIC
 ### 7. Vector Databases (1.5 marks)  KEEP ENDPOINT RUNNING AND UPDATE CSV
 ### 8. Function Calling (1.5 marks)  KEEP ENDPOINT RUNNING AND UPDATE CSV
 

@@ -233,66 +233,66 @@ test_cases = [
     #         "expected_answer": "ga_2_5",
     #         "file": "data/lenna.webp"
     #     },
-    #     {
-    #         "question": """Download this q-vercel-python.json which has the marks of 100 imaginary students.
+    # {
+    #     "question": """Download this q-vercel-python.json which has the marks of 100 imaginary students.
     # Create and deploy a Python app to Vercel. Expose an API so that when a request like https://your-app.vercel.app/api?name=X&name=Y is made, it returns a JSON response with the marks of the names X and Y in the same order, like this:
     # { "marks": [10, 20] }
     # Make sure you enable CORS to allow GET requests from any origin.
     # What is the Vercel URL? It should look like: https://your-app.vercel.app/api
     #      """,
-    #         "expected_answer": "ga_2_6",
-    #         "file": "data/q-vercel-python.json"
+    #     "expected_answer": "ga_2_6",
+    #     "file": "data/q-vercel-python.json"
+    # },
+    # {
+    #     "question": """Create a GitHub action on one of your GitHub repositories. Make sure one of the steps in the action has a name that contains your email address 22f3002248@ds.study.iitm.ac.in. For example:
+
+    # jobs:
+    #   test:
+    #     steps:
+    #       - name: 22f3002248@ds.study.iitm.ac.in
+    #         run: echo "Hello, world!"
+
+    # Trigger the action and make sure it is the most recent action.
+    # What is your repository URL? It will look like: https://github.com/USER/REPO
+    #      """,
+    #     "expected_answer": "ga_2_7",
+    #     "file": ""
+    # },
+    # {
+    #     "question": """Create and push an image to Docker Hub. Add a tag named 22f3002248 to the image.
+    # What is the Docker image URL? It should look like: https://hub.docker.com/repository/docker/$USER/$REPO/general
+
+    #      """,
+    #     "expected_answer": "ga_2_8",
+    #     "file": ""
+    # },
+    # {
+    #     "question": """Download q-fastapi.csv. This file has 2-columns:
+
+    # studentId: A unique identifier for each student, e.g. 1, 2, 3, ...
+    # class: The class (including section) of the student, e.g. 1A, 1B, ... 12A, 12B, ... 12Z
+    # Write a FastAPI server that serves this data. For example, /api should return all students data (in the same row and column order as the CSV file) as a JSON like this:
+
+    # {
+    #   "students": [
+    #     {
+    #       "studentId": 1,
+    #       "class": "1A"
     #     },
-    {
-        "question": """Create a GitHub action on one of your GitHub repositories. Make sure one of the steps in the action has a name that contains your email address 22f3002248@ds.study.iitm.ac.in. For example:
-
-    jobs:
-      test:
-        steps:
-          - name: 22f3002248@ds.study.iitm.ac.in
-            run: echo "Hello, world!"
-
-    Trigger the action and make sure it is the most recent action.
-    What is your repository URL? It will look like: https://github.com/USER/REPO
-         """,
-        "expected_answer": "ga_2_7",
-        "file": ""
-    },
-    {
-        "question": """Create and push an image to Docker Hub. Add a tag named 22f3002248 to the image.
-    What is the Docker image URL? It should look like: https://hub.docker.com/repository/docker/$USER/$REPO/general
-
-         """,
-        "expected_answer": "ga_2_8",
-        "file": ""
-    },
-    {
-        "question": """Download q-fastapi.csv. This file has 2-columns:
-
-    studentId: A unique identifier for each student, e.g. 1, 2, 3, ...
-    class: The class (including section) of the student, e.g. 1A, 1B, ... 12A, 12B, ... 12Z
-    Write a FastAPI server that serves this data. For example, /api should return all students data (in the same row and column order as the CSV file) as a JSON like this:
-
-    {
-      "students": [
-        {
-          "studentId": 1,
-          "class": "1A"
-        },
-        {
-          "studentId": 2,
-          "class": "1B"
-        }, ...
-      ]
-    }
-    If the URL has a query parameter class, it should return only students in those classes. For example, /api?class=1A should return only students in class 1A. /api?class=1A&class=1B should return only students in class 1A and 1B. There may be any number of classes specified. Return students in the same order as they appear in the CSV file (not the order of the classes).
-    Make sure you enable CORS to allow GET requests from any origin.
-    What is the API URL endpoint for FastAPI? It might look like: http://127.0.0.1:8000/api
-    We'll check by sending a request to this URL with ?class=... added and check if the response matches the data.
-         """,
-        "expected_answer": "ga_2_9",
-        "file": "data/q-fastapi.csv"
-    },
+    #     {
+    #       "studentId": 2,
+    #       "class": "1B"
+    #     }, ...
+    #   ]
+    # }
+    # If the URL has a query parameter class, it should return only students in those classes. For example, /api?class=1A should return only students in class 1A. /api?class=1A&class=1B should return only students in class 1A and 1B. There may be any number of classes specified. Return students in the same order as they appear in the CSV file (not the order of the classes).
+    # Make sure you enable CORS to allow GET requests from any origin.
+    # What is the API URL endpoint for FastAPI? It might look like: http://127.0.0.1:8000/api
+    # We'll check by sending a request to this URL with ?class=... added and check if the response matches the data.
+    #      """,
+    #     "expected_answer": "ga_2_9",
+    #     "file": "data/q-fastapi.csv"
+    # },
     #     {
     #         "question": """Download Llamafile. Run the Llama-3.2-1B-Instruct.Q6_K.llamafile model with it.
     # Create a tunnel to the Llamafile server using ngrok.
@@ -302,130 +302,130 @@ test_cases = [
     #         "file": ""
     #     },
     #     # GA3
-    #     {
-    #         "question": """DataSentinel Inc. is a tech company specializing in building advanced natural language processing (NLP) solutions. Their latest project involves integrating an AI-powered sentiment analysis module into an internal monitoring dashboard. The goal is to automatically classify large volumes of unstructured feedback and text data from various sources as either GOOD, BAD, or NEUTRAL. As part of the quality assurance process, the development team needs to test the integration with a series of sample inputs—even ones that may not represent coherent text—to ensure that the system routes and processes the data correctly.
+    {
+        "question": """DataSentinel Inc. is a tech company specializing in building advanced natural language processing (NLP) solutions. Their latest project involves integrating an AI-powered sentiment analysis module into an internal monitoring dashboard. The goal is to automatically classify large volumes of unstructured feedback and text data from various sources as either GOOD, BAD, or NEUTRAL. As part of the quality assurance process, the development team needs to test the integration with a series of sample inputs—even ones that may not represent coherent text—to ensure that the system routes and processes the data correctly.
 
-    # Before rolling out the live system, the team creates a test harness using Python. The harness employs the httpx library to send POST requests to OpenAI's API. For this proof-of-concept, the team uses the dummy model gpt-4o-mini along with a dummy API key in the Authorization header to simulate real API calls.
+    Before rolling out the live system, the team creates a test harness using Python. The harness employs the httpx library to send POST requests to OpenAI's API. For this proof-of-concept, the team uses the dummy model gpt-4o-mini along with a dummy API key in the Authorization header to simulate real API calls.
 
-    # One of the test cases involves sending a sample piece of meaningless text:
+    One of the test cases involves sending a sample piece of meaningless text:
 
-    # OV 8 9 W sMhmUHm zYfEsjxAS  zZYS TEUx1HVA9erJYF3YV
-    # Write a Python program that uses httpx to send a POST request to OpenAI's API to analyze the sentiment of this (meaningless) text into GOOD, BAD or NEUTRAL. Specifically:
+    OV 8 9 W sMhmUHm zYfEsjxAS  zZYS TEUx1HVA9erJYF3YV
+    Write a Python program that uses httpx to send a POST request to OpenAI's API to analyze the sentiment of this (meaningless) text into GOOD, BAD or NEUTRAL. Specifically:
 
-    # Make sure you pass an Authorization header with dummy API key.
-    # Use gpt-4o-mini as the model.
-    # The first message must be a system message asking the LLM to analyze the sentiment of the text. Make sure you mention GOOD, BAD, or NEUTRAL as the categories.
-    # The second message must be exactly the text contained above.
-    # This test is crucial for DataSentinel Inc. as it validates both the API integration and the correctness of message formatting in a controlled environment. Once verified, the same mechanism will be used to process genuine customer feedback, ensuring that the sentiment analysis module reliably categorizes data as GOOD, BAD, or NEUTRAL. This reliability is essential for maintaining high operational standards and swift response times in real-world applications.
+    Make sure you pass an Authorization header with dummy API key.
+    Use gpt-4o-mini as the model.
+    The first message must be a system message asking the LLM to analyze the sentiment of the text. Make sure you mention GOOD, BAD, or NEUTRAL as the categories.
+    The second message must be exactly the text contained above.
+    This test is crucial for DataSentinel Inc. as it validates both the API integration and the correctness of message formatting in a controlled environment. Once verified, the same mechanism will be used to process genuine customer feedback, ensuring that the sentiment analysis module reliably categorizes data as GOOD, BAD, or NEUTRAL. This reliability is essential for maintaining high operational standards and swift response times in real-world applications.
 
-    # Note: This uses a dummy httpx library, not the real one. You can only use:
+    Note: This uses a dummy httpx library, not the real one. You can only use:
 
-    # response = httpx.get(url, **kwargs)
-    # response = httpx.post(url, json=None, **kwargs)
-    # response.raise_for_status()
-    # response.json()
-    # Code
-    #      """,
-    #         "expected_answer": "ga_3_1",
-    #         "file": "data/q-compress-files.zip"
-    #     },
-    #     {
-    #         "question": """LexiSolve Inc. is a startup that delivers a conversational AI platform to enterprise clients. The system leverages OpenAI’s language models to power a variety of customer service, sentiment analysis, and data extraction features. Because pricing for these models is based on the number of tokens processed—and strict token limits apply—accurate token accounting is critical for managing costs and ensuring system stability.
+    response = httpx.get(url, **kwargs)
+    response = httpx.post(url, json=None, **kwargs)
+    response.raise_for_status()
+    response.json()
+    Code
+         """,
+        "expected_answer": "ga_3_1",
+        "file": ""
+    },
+    {
+        "question": """LexiSolve Inc. is a startup that delivers a conversational AI platform to enterprise clients. The system leverages OpenAI’s language models to power a variety of customer service, sentiment analysis, and data extraction features. Because pricing for these models is based on the number of tokens processed—and strict token limits apply—accurate token accounting is critical for managing costs and ensuring system stability.
 
-    # To optimize operational costs and prevent unexpected API overages, the engineering team at LexiSolve has developed an internal diagnostic tool that simulates and measures token usage for typical prompts sent to the language model.
+    To optimize operational costs and prevent unexpected API overages, the engineering team at LexiSolve has developed an internal diagnostic tool that simulates and measures token usage for typical prompts sent to the language model.
 
-    # One specific test case an understanding of text tokenization. Your task is to generate data for that test case.
+    One specific test case an understanding of text tokenization. Your task is to generate data for that test case.
 
-    # Specifically, when you make a request to OpenAI's GPT-4o-Mini with just this user message:
+    Specifically, when you make a request to OpenAI's GPT-4o-Mini with just this user message:
 
-    # List only the valid English words from these: G, F, H, 0CBF1099, FQsm1n, PXwQy, MNR43d9C1E, Wi, rnINV, iq1HDmZ7Em, nbv0ZmB, i, H9HWDzcvIs, i58NVjY, L8, m8lh8mJ, JBd1FTSlLj, iMSC0m1q, wh, xq, VvLyiD6, 9iBIuPnva, nEjDk, M4IM8, 34KDJ, T1LZq5plx5, 8ILO5NXmM, rjoph, Hq, N8TGS, Wa2KZ40fw, 6tr70e4Du, ummJsNs, k, uxvmgJwiS, l1LEOPaBw, i6HBpQ3, Eam, SP1mx55, Y3, VQ2gJyxkt, DnK28O, jRcZFZwhoG, rUXZ56DMS, 0bKGUF, C, fbwZrD1, 76zmURq4Dz, hx, dA6Bq, WbvX4u, z, g8CZZkABb, Hq, ObjX98fq4W, gzvQ, mRB8CkfA, 1wbe6, luqgLQC, 5By1Ww1, n7, yN, L9aJco, nBzGs, J, va5, iC82yJeuRA, enxisJ, E, c44HGR3TLY, udAXI, O3X3, OkPp15RvY, GRLg, hwK4L, p8J9efCy, 5ca1t2Jvzc, mC, edUuDY7, 43Ii, IX0t9DSMj, BYRi7Vf, W3GJ5Kt, y4, 5lY3lLXY, pnTKzVifl, Oxew, YNWX, JVkIHFf5jk, 8, 53i81NWjB, 6, ogC4, fG8MgrNK, 7tgcb, NY, kDbSU
-    # ... how many input tokens does it use up?
+    List only the valid English words from these: G, F, H, 0CBF1099, FQsm1n, PXwQy, MNR43d9C1E, Wi, rnINV, iq1HDmZ7Em, nbv0ZmB, i, H9HWDzcvIs, i58NVjY, L8, m8lh8mJ, JBd1FTSlLj, iMSC0m1q, wh, xq, VvLyiD6, 9iBIuPnva, nEjDk, M4IM8, 34KDJ, T1LZq5plx5, 8ILO5NXmM, rjoph, Hq, N8TGS, Wa2KZ40fw, 6tr70e4Du, ummJsNs, k, uxvmgJwiS, l1LEOPaBw, i6HBpQ3, Eam, SP1mx55, Y3, VQ2gJyxkt, DnK28O, jRcZFZwhoG, rUXZ56DMS, 0bKGUF, C, fbwZrD1, 76zmURq4Dz, hx, dA6Bq, WbvX4u, z, g8CZZkABb, Hq, ObjX98fq4W, gzvQ, mRB8CkfA, 1wbe6, luqgLQC, 5By1Ww1, n7, yN, L9aJco, nBzGs, J, va5, iC82yJeuRA, enxisJ, E, c44HGR3TLY, udAXI, O3X3, OkPp15RvY, GRLg, hwK4L, p8J9efCy, 5ca1t2Jvzc, mC, edUuDY7, 43Ii, IX0t9DSMj, BYRi7Vf, W3GJ5Kt, y4, 5lY3lLXY, pnTKzVifl, Oxew, YNWX, JVkIHFf5jk, 8, 53i81NWjB, 6, ogC4, fG8MgrNK, 7tgcb, NY, kDbSU
+    ... how many input tokens does it use up?
 
-    # Number of tokens:
-    # Remember: indicating that this is a user message takes up a few extra tokens. You actually need to make the request to get the answer.
+    Number of tokens:
+    Remember: indicating that this is a user message takes up a few extra tokens. You actually need to make the request to get the answer.
 
-    #      """,
-    #         "expected_answer": "ga_3_2",
-    #         "file": "data/q-compress-files.zip"
-    #     },
-    #     {
-    #         "question": """RapidRoute Solutions is a logistics and delivery company that relies on accurate and standardized address data to optimize package routing. Recently, they encountered challenges with manually collecting and verifying new addresses for testing their planning software. To overcome this, the company decided to create an automated address generator using a language model, which would provide realistic, standardized U.S. addresses that could be directly integrated into their system.
+         """,
+        "expected_answer": "ga_3_2",
+        "file": ""
+    },
+    {
+        "question": """RapidRoute Solutions is a logistics and delivery company that relies on accurate and standardized address data to optimize package routing. Recently, they encountered challenges with manually collecting and verifying new addresses for testing their planning software. To overcome this, the company decided to create an automated address generator using a language model, which would provide realistic, standardized U.S. addresses that could be directly integrated into their system.
 
-    # The engineering team at RapidRoute is tasked with designing a service that uses OpenAI's GPT-4o-Mini model to generate fake but plausible address data. The addresses must follow a strict format, which is critical for downstream processes such as geocoding, routing, and verification against customer databases. For consistency and validation, the development team requires that the addresses be returned as structured JSON data with no additional properties that could confuse their parsers.
+    The engineering team at RapidRoute is tasked with designing a service that uses OpenAI's GPT-4o-Mini model to generate fake but plausible address data. The addresses must follow a strict format, which is critical for downstream processes such as geocoding, routing, and verification against customer databases. For consistency and validation, the development team requires that the addresses be returned as structured JSON data with no additional properties that could confuse their parsers.
 
-    # As part of the integration process, you need to write the body of the request to an OpenAI chat completion call that:
+    As part of the integration process, you need to write the body of the request to an OpenAI chat completion call that:
 
-    # Uses model gpt-4o-mini
-    # Has a system message: Respond in JSON
-    # Has a user message: Generate 10 random addresses in the US
-    # Uses structured outputs to respond with an object addresses which is an array of objects with required fields: latitude (number) zip (number) county (string) .
-    # Sets additionalProperties to false to prevent additional properties.
-    # Note that you don't need to run the request or use an API key; your task is simply to write the correct JSON body.
+    Uses model gpt-4o-mini
+    Has a system message: Respond in JSON
+    Has a user message: Generate 10 random addresses in the US
+    Uses structured outputs to respond with an object addresses which is an array of objects with required fields: latitude (number) zip (number) county (string) .
+    Sets additionalProperties to false to prevent additional properties.
+    Note that you don't need to run the request or use an API key; your task is simply to write the correct JSON body.
 
-    # What is the JSON body we should send to https://api.openai.com/v1/chat/completions for this? (No need to run it or to use an API key. Just write the body of the request below.)
-    # There's no answer box above. Figure out how to enable it. That's part of the test.
+    What is the JSON body we should send to https://api.openai.com/v1/chat/completions for this? (No need to run it or to use an API key. Just write the body of the request below.)
+    There's no answer box above. Figure out how to enable it. That's part of the test.
 
-    #      """,
-    #         "expected_answer": "ga_3_3",
-    #         "file": "data/q-compress-files.zip"
-    #     },
-    #     {
-    #         "question": """Acme Global Solutions manages hundreds of invoices from vendors every month. To streamline their accounts payable process, the company is developing an automated document processing system. This system uses a computer vision model to extract useful text from scanned invoice images. Critical pieces of data such as vendor email addresses, invoice or transaction numbers, and other details are embedded within these documents.
+         """,
+        "expected_answer": "ga_3_3",
+        "file": ""
+    },
+    {
+        "question": """Acme Global Solutions manages hundreds of invoices from vendors every month. To streamline their accounts payable process, the company is developing an automated document processing system. This system uses a computer vision model to extract useful text from scanned invoice images. Critical pieces of data such as vendor email addresses, invoice or transaction numbers, and other details are embedded within these documents.
 
-    # Your team is tasked with integrating OpenAI's vision model into the invoice processing workflow. The chosen model, gpt-4o-mini, is capable of analyzing both text and image inputs simultaneously. When an invoice is received—for example, an invoice image may contain a vendor email like alice.brown@acmeglobal.com and a transaction number such as 34921. The system needs to extract all embedded text to automatically populate the vendor management system.
+    Your team is tasked with integrating OpenAI's vision model into the invoice processing workflow. The chosen model, gpt-4o-mini, is capable of analyzing both text and image inputs simultaneously. When an invoice is received—for example, an invoice image may contain a vendor email like alice.brown@acmeglobal.com and a transaction number such as 34921. The system needs to extract all embedded text to automatically populate the vendor management system.
 
-    # The automated process will send a POST request to OpenAI's API with two inputs in a single user message:
+    The automated process will send a POST request to OpenAI's API with two inputs in a single user message:
 
-    # Text: A simple instruction "Extract text from this image."
-    # Image URL: A base64 URL representing the invoice image that might include the email and the transaction number among other details.
-    # Here is an example invoice image:
-    # Write just the JSON body (not the URL, nor headers) for the POST request that sends these two pieces of content (text and image URL) to the OpenAI API endpoint.
+    Text: A simple instruction "Extract text from this image."
+    Image URL: A base64 URL representing the invoice image that might include the email and the transaction number among other details.
+    Here is an example invoice image:
+    Write just the JSON body (not the URL, nor headers) for the POST request that sends these two pieces of content (text and image URL) to the OpenAI API endpoint.
 
-    # Use gpt-4o-mini as the model.
-    # Send a single user message to the model that has a text and an image_url content (in that order).
-    # The text content should be Extract text from this image.
-    # Send the image_url as a base64 URL of the image above. CAREFUL: Do not modify the image.
-    # Write your JSON body here:
-    #      """,
-    #         "expected_answer": "ga_3_4",
-    #         "file": "data/q-compress-files.zip"
-    #     },
-    #     {
-    #         "question": """SecurePay, a leading fintech startup, has implemented an innovative feature to detect and prevent fraudulent activities in real time. As part of its security suite, the system analyzes personalized transaction messages by converting them into embeddings. These embeddings are compared against known patterns of legitimate and fraudulent messages to flag unusual activity.
+    Use gpt-4o-mini as the model.
+    Send a single user message to the model that has a text and an image_url content (in that order).
+    The text content should be Extract text from this image.
+    Send the image_url as a base64 URL of the image above. CAREFUL: Do not modify the image.
+    Write your JSON body here:
+         """,
+        "expected_answer": "ga_3_4",
+        "file": "data/download.png"
+    },
+    {
+        "question": """SecurePay, a leading fintech startup, has implemented an innovative feature to detect and prevent fraudulent activities in real time. As part of its security suite, the system analyzes personalized transaction messages by converting them into embeddings. These embeddings are compared against known patterns of legitimate and fraudulent messages to flag unusual activity.
 
-    # Imagine you are working on the SecurePay team as a junior developer tasked with integrating the text embeddings feature into the fraud detection module. When a user initiates a transaction, the system sends a personalized verification message to the user's registered email address. This message includes the user's email address and a unique transaction code (a randomly generated number). Here are 2 verification messages:
+    Imagine you are working on the SecurePay team as a junior developer tasked with integrating the text embeddings feature into the fraud detection module. When a user initiates a transaction, the system sends a personalized verification message to the user's registered email address. This message includes the user's email address and a unique transaction code (a randomly generated number). Here are 2 verification messages:
 
-    # Dear user, please verify your transaction code 85697 sent to 22f3002248@ds.study.iitm.ac.in
-    # Dear user, please verify your transaction code 25672 sent to 22f3002248@ds.study.iitm.ac.inThe goal is to capture this message, convert it into a meaningful embedding using OpenAI's text-embedding-3-small model, and subsequently use the embedding in a machine learning model to detect anomalies.
+    Dear user, please verify your transaction code 85697 sent to 22f3002248@ds.study.iitm.ac.in
+    Dear user, please verify your transaction code 25672 sent to 22f3002248@ds.study.iitm.ac.inThe goal is to capture this message, convert it into a meaningful embedding using OpenAI's text-embedding-3-small model, and subsequently use the embedding in a machine learning model to detect anomalies.
 
-    # Your task is to write the JSON body for a POST request that will be sent to the OpenAI API endpoint to obtain the text embedding for the 2 given personalized transaction verification messages above. This will be sent to the endpoint https://api.openai.com/v1/embeddings.
+    Your task is to write the JSON body for a POST request that will be sent to the OpenAI API endpoint to obtain the text embedding for the 2 given personalized transaction verification messages above. This will be sent to the endpoint https://api.openai.com/v1/embeddings.
 
-    # Write your JSON body here:
-    #      """,
-    #         "expected_answer": "ga_3_5",
-    #         "file": "data/q-compress-files.zip"
-    #     },
-    #     {
-    #         "question": """ShopSmart is an online retail platform that places a high value on customer feedback. Each month, the company receives hundreds of comments from shoppers regarding product quality, delivery speed, customer service, and more. To automatically understand and cluster this feedback, ShopSmart's data science team uses text embeddings to capture the semantic meaning behind each comment.
+    Write your JSON body here:
+         """,
+        "expected_answer": "ga_3_5",
+        "file": ""
+    },
+    {
+        "question": """ShopSmart is an online retail platform that places a high value on customer feedback. Each month, the company receives hundreds of comments from shoppers regarding product quality, delivery speed, customer service, and more. To automatically understand and cluster this feedback, ShopSmart's data science team uses text embeddings to capture the semantic meaning behind each comment.
 
-    # As part of a pilot project, ShopSmart has curated a collection of 25 feedback phrases that represent a variety of customer sentiments. Examples of these phrases include comments like “Fast shipping and great service,” “Product quality could be improved,” “Excellent packaging,” and so on. Due to limited processing capacity during initial testing, you have been tasked with determine which pair(s) of 5 of these phrases are most similar to each other. This similarity analysis will help in grouping similar feedback to enhance the company’s understanding of recurring customer issues.
+    As part of a pilot project, ShopSmart has curated a collection of 25 feedback phrases that represent a variety of customer sentiments. Examples of these phrases include comments like “Fast shipping and great service,” “Product quality could be improved,” “Excellent packaging,” and so on. Due to limited processing capacity during initial testing, you have been tasked with determine which pair(s) of 5 of these phrases are most similar to each other. This similarity analysis will help in grouping similar feedback to enhance the company’s understanding of recurring customer issues.
 
-    # ShopSmart has written a Python program that has the 5 phrases and their embeddings as an array of floats. It looks like this:
+    ShopSmart has written a Python program that has the 5 phrases and their embeddings as an array of floats. It looks like this:
 
-    # embeddings = \{"The quality exceeds the price.":[-0.050457071512937546,-0.034066375344991684,-0.10696785151958466,-0.03518003225326538,0.11867549270391464,-0.08566565811634064,-0.017789902165532112,0.3559122681617737,-0.04817265644669533,-0.14437519013881683,0.14620272815227509,0.015005768276751041,-0.34517550468444824,0.022687122225761414,0.2908063530921936,0.17681391537189484,-0.20993797481060028,-0.286237508058548,-0.022829897701740265,0.04428914561867714,0.08435212075710297,0.04840109869837761,-0.03081108257174492,-0.04203328490257263,-0.0324387289583683,-0.23552344739437103,0.0033713006414473057,0.02891216054558754,0.0676758736371994,-0.11616263538599014,0.05408358573913574,-0.18183964490890503,0.23757942020893097,-0.34266263246536255,-0.19920121133327484,-0.021787632256746292,0.0973161906003952,0.032724279910326004,0.07030294835567474,-0.1132500022649765,0.09360401332378387,0.028341054916381836,-0.09657375514507294,0.1291838139295578,0.12198790162801743,0.019260495901107788,0.02211601845920086,0.058595310896635056,-0.07481467723846436,0.012935514561831951],"I had difficulty tracking my order.":[0.12442748248577118,0.0033108799252659082,-0.04050052911043167,-0.20462776720523834,-0.08943995088338852,-0.023299355059862137,-0.023514946922659874,0.0016102041117846966,-0.04690669849514961,0.11284710466861725,0.07447169721126556,-0.06517043709754944,-0.056577544659376144,-0.016893187537789345,-0.05214250832796097,0.07330133765935898,0.07083743065595627,0.036773864179849625,-0.3843700587749481,0.2656095623970032,0.07034464925527573,0.02235998772084713,0.3134094178676605,-0.2508260905742645,-0.15732069313526154,-0.05469881370663643,0.05953424051403999,-0.25119566917419434,-0.005624645855277777,0.09147267788648605,0.23099161684513092,-0.11666616797447205,0.1610165536403656,0.01162657793611288,-0.10237548500299454,0.05660834535956383,-0.006267572287470102,0.09523013979196548,0.10681052505970001,0.2604353427886963,0.01636960543692112,0.27423325181007385,0.101882703602314,0.02844276838004589,0.07243897020816803,0.18134382367134094,-0.2525508403778076,-0.03859099745750427,-0.08500491827726364,0.0959693193435669],"The website is user-friendly.":[-0.17558817565441132,-0.15948393940925598,-0.4088399410247803,0.09409292787313461,0.1044178232550621,-0.19364051520824432,-0.15688647329807281,0.22987505793571472,0.04376717284321785,0.028831787407398224,0.07759906351566315,-0.09389811754226685,-0.13740554451942444,-0.03180262818932533,0.22506976127624512,-0.02987077087163925,-0.2480572611093521,-0.08526156842708588,-0.08441739529371262,0.06123507767915726,0.2639017701148987,0.08117057383060455,0.024302469566464424,-0.1449381709098816,0.08207967877388,-0.005746876355260611,-0.13201580941677094,0.035715050995349884,-0.1213662400841713,0.032630570232868195,0.04873481020331383,-0.17909474670886993,0.17584791779518127,-0.1285741776227951,0.037273526191711426,-0.14143159985542297,0.1436394453048706,0.09279419481754303,0.1490941047668457,0.07467692345380783,-0.09409292787313461,0.09675531834363937,0.13350935280323029,-0.19415999948978424,-0.18454940617084503,0.15182143449783325,-0.043604832142591476,0.01301164273172617,0.20143288373947144,0.015333120711147785],"The discount offered was enticing.":[-0.12655314803123474,-0.0466570146381855,-0.27802109718322754,0.03967156261205673,0.13155940175056458,0.05116845667362213,-0.15833696722984314,0.4144703149795532,-0.007458427920937538,-0.06921420991420746,0.13062800467014313,-0.044503167271614075,-0.13924339413642883,-0.1716093271970749,0.2568318843841553,0.13225793838500977,0.009481299668550491,-0.024609174579381943,-0.1264367252588272,0.16066545248031616,0.01923910528421402,0.10082339495420456,-0.02124742418527603,-0.02405615895986557,-0.15007084608078003,-0.19244927167892456,-0.2273765504360199,-0.2924576997756958,0.13807915151119232,-0.05678592622280121,0.03731397166848183,-0.12795023620128632,-0.050906501710414886,-0.10140551626682281,-0.08929739147424698,0.2691728472709656,-0.06770069897174835,0.07241588085889816,0.13260720670223236,-0.12201260775327682,0.01567361317574978,-0.158919095993042,0.1357506662607193,0.07381296902894974,0.01432018168270588,0.15472781658172607,0.0062141441740095615,-0.08859884738922119,0.01254471205174923,0.14797520637512207],"The payment process was secure and efficient.":[-0.04701301082968712,-0.20167900621891022,-0.22099372744560242,-0.05536692962050438,0.03149012476205826,0.049234796315431595,-0.02104772813618183,0.1948062777519226,0.004417652729898691,-0.11180031299591064,0.25831976532936096,-0.1503705382347107,-0.14669717848300934,-0.15866521000862122,0.07601473480463028,-0.03744451329112053,-0.1256050169467926,-0.004232503939419985,-0.19717617332935333,-0.07204513996839523,0.07216363400220871,0.23426520824432373,0.005728506948798895,-0.08347994089126587,-0.09248558431863785,-0.16150909662246704,-0.10895642638206482,-0.3507460951805115,-0.1641159951686859,-0.1695667803287506,0.21696490049362183,-0.1385210007429123,0.196346715092659,-0.025669043883681297,-0.07808840274810791,-0.0023291732650250196,-0.03386003151535988,0.14717115461826324,0.06078808754682541,-0.0358448289334774,-0.1290413737297058,0.17335861921310425,-0.08033981174230576,0.1285673975944519,-0.040229152888059616,0.11511818319559097,0.10747523605823517,-0.3336827754974365,0.09313730895519257,-0.002255113562569022]}\
-    # Your task is to write a Python function most_similar(embeddings) that will calculate the cosine similarity between each pair of these embeddings and return the pair that has the highest similarity. The result should be a tuple of the two phrases that are most similar.
+    embeddings = \{"The quality exceeds the price.":[-0.050457071512937546,-0.034066375344991684,-0.10696785151958466,-0.03518003225326538,0.11867549270391464,-0.08566565811634064,-0.017789902165532112,0.3559122681617737,-0.04817265644669533,-0.14437519013881683,0.14620272815227509,0.015005768276751041,-0.34517550468444824,0.022687122225761414,0.2908063530921936,0.17681391537189484,-0.20993797481060028,-0.286237508058548,-0.022829897701740265,0.04428914561867714,0.08435212075710297,0.04840109869837761,-0.03081108257174492,-0.04203328490257263,-0.0324387289583683,-0.23552344739437103,0.0033713006414473057,0.02891216054558754,0.0676758736371994,-0.11616263538599014,0.05408358573913574,-0.18183964490890503,0.23757942020893097,-0.34266263246536255,-0.19920121133327484,-0.021787632256746292,0.0973161906003952,0.032724279910326004,0.07030294835567474,-0.1132500022649765,0.09360401332378387,0.028341054916381836,-0.09657375514507294,0.1291838139295578,0.12198790162801743,0.019260495901107788,0.02211601845920086,0.058595310896635056,-0.07481467723846436,0.012935514561831951],"I had difficulty tracking my order.":[0.12442748248577118,0.0033108799252659082,-0.04050052911043167,-0.20462776720523834,-0.08943995088338852,-0.023299355059862137,-0.023514946922659874,0.0016102041117846966,-0.04690669849514961,0.11284710466861725,0.07447169721126556,-0.06517043709754944,-0.056577544659376144,-0.016893187537789345,-0.05214250832796097,0.07330133765935898,0.07083743065595627,0.036773864179849625,-0.3843700587749481,0.2656095623970032,0.07034464925527573,0.02235998772084713,0.3134094178676605,-0.2508260905742645,-0.15732069313526154,-0.05469881370663643,0.05953424051403999,-0.25119566917419434,-0.005624645855277777,0.09147267788648605,0.23099161684513092,-0.11666616797447205,0.1610165536403656,0.01162657793611288,-0.10237548500299454,0.05660834535956383,-0.006267572287470102,0.09523013979196548,0.10681052505970001,0.2604353427886963,0.01636960543692112,0.27423325181007385,0.101882703602314,0.02844276838004589,0.07243897020816803,0.18134382367134094,-0.2525508403778076,-0.03859099745750427,-0.08500491827726364,0.0959693193435669],"The website is user-friendly.":[-0.17558817565441132,-0.15948393940925598,-0.4088399410247803,0.09409292787313461,0.1044178232550621,-0.19364051520824432,-0.15688647329807281,0.22987505793571472,0.04376717284321785,0.028831787407398224,0.07759906351566315,-0.09389811754226685,-0.13740554451942444,-0.03180262818932533,0.22506976127624512,-0.02987077087163925,-0.2480572611093521,-0.08526156842708588,-0.08441739529371262,0.06123507767915726,0.2639017701148987,0.08117057383060455,0.024302469566464424,-0.1449381709098816,0.08207967877388,-0.005746876355260611,-0.13201580941677094,0.035715050995349884,-0.1213662400841713,0.032630570232868195,0.04873481020331383,-0.17909474670886993,0.17584791779518127,-0.1285741776227951,0.037273526191711426,-0.14143159985542297,0.1436394453048706,0.09279419481754303,0.1490941047668457,0.07467692345380783,-0.09409292787313461,0.09675531834363937,0.13350935280323029,-0.19415999948978424,-0.18454940617084503,0.15182143449783325,-0.043604832142591476,0.01301164273172617,0.20143288373947144,0.015333120711147785],"The discount offered was enticing.":[-0.12655314803123474,-0.0466570146381855,-0.27802109718322754,0.03967156261205673,0.13155940175056458,0.05116845667362213,-0.15833696722984314,0.4144703149795532,-0.007458427920937538,-0.06921420991420746,0.13062800467014313,-0.044503167271614075,-0.13924339413642883,-0.1716093271970749,0.2568318843841553,0.13225793838500977,0.009481299668550491,-0.024609174579381943,-0.1264367252588272,0.16066545248031616,0.01923910528421402,0.10082339495420456,-0.02124742418527603,-0.02405615895986557,-0.15007084608078003,-0.19244927167892456,-0.2273765504360199,-0.2924576997756958,0.13807915151119232,-0.05678592622280121,0.03731397166848183,-0.12795023620128632,-0.050906501710414886,-0.10140551626682281,-0.08929739147424698,0.2691728472709656,-0.06770069897174835,0.07241588085889816,0.13260720670223236,-0.12201260775327682,0.01567361317574978,-0.158919095993042,0.1357506662607193,0.07381296902894974,0.01432018168270588,0.15472781658172607,0.0062141441740095615,-0.08859884738922119,0.01254471205174923,0.14797520637512207],"The payment process was secure and efficient.":[-0.04701301082968712,-0.20167900621891022,-0.22099372744560242,-0.05536692962050438,0.03149012476205826,0.049234796315431595,-0.02104772813618183,0.1948062777519226,0.004417652729898691,-0.11180031299591064,0.25831976532936096,-0.1503705382347107,-0.14669717848300934,-0.15866521000862122,0.07601473480463028,-0.03744451329112053,-0.1256050169467926,-0.004232503939419985,-0.19717617332935333,-0.07204513996839523,0.07216363400220871,0.23426520824432373,0.005728506948798895,-0.08347994089126587,-0.09248558431863785,-0.16150909662246704,-0.10895642638206482,-0.3507460951805115,-0.1641159951686859,-0.1695667803287506,0.21696490049362183,-0.1385210007429123,0.196346715092659,-0.025669043883681297,-0.07808840274810791,-0.0023291732650250196,-0.03386003151535988,0.14717115461826324,0.06078808754682541,-0.0358448289334774,-0.1290413737297058,0.17335861921310425,-0.08033981174230576,0.1285673975944519,-0.040229152888059616,0.11511818319559097,0.10747523605823517,-0.3336827754974365,0.09313730895519257,-0.002255113562569022]}\
+    Your task is to write a Python function most_similar(embeddings) that will calculate the cosine similarity between each pair of these embeddings and return the pair that has the highest similarity. The result should be a tuple of the two phrases that are most similar.
 
-    # Write your Python code here:
-    # import numpy
+    Write your Python code here:
+    import numpy
 
 
-    # def most_similar(embeddings):
-    #     # Your code here
-    #     return (phrase1, phrase2)
-    #      """,
-    #         "expected_answer": "ga_3_6",
-    #         "file": "data/q-compress-files.zip"
-    #     },
+    def most_similar(embeddings):
+        # Your code here
+        return (phrase1, phrase2)
+         """,
+        "expected_answer": "ga_3_6",
+        "file": ""
+    },
     #     {
     #         "question": """InfoCore Solutions is a technology consulting firm that maintains an extensive internal knowledge base of technical documents, project reports, and case studies. Employees frequently search through these documents to answer client questions quickly or gain insights for ongoing projects. However, due to the sheer volume of documentation, traditional keyword-based search often returns too many irrelevant results.
 
